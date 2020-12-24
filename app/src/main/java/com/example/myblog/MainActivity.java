@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         //NOTIFICATION ----------------------------------------
         private int messageCount = 0;
         private static Uri alarmSound;
-        private final long[] pattern = {0, 300, 1000};
+        private final long[] pattern = {100, 300, 300, 300};
         private NotificationManager mNotificationManager;
         String  __APPKEY = "SECONDAPP";
         private String lastIdReference;
@@ -107,37 +107,6 @@ public class MainActivity extends AppCompatActivity {
 
                 }
             });
-
-//            dbBlog.addChildEventListener(new ChildEventListener() {
-//                @Override
-//                public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-//                    if(!__APPKEY.equals("MAINAPP")){
-//                        notif();
-//                        Log.i("data","dataadded");
-//                    }
-//
-//                }
-//
-//                @Override
-//                public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-//
-//                }
-//
-//                @Override
-//                public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-//
-//                }
-//
-//                @Override
-//                public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-//
-//                }
-//
-//                @Override
-//                public void onCancelled(@NonNull DatabaseError error) {
-//
-//                }
-//            });
         }
 
     private void notif() {
@@ -147,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
         mBuilder.setContentText("Ada berita baru...jangan ketinggalan");
         mBuilder.setTicker("My Blog - berita terbaru");
         mBuilder.setSmallIcon(R.drawable.ic_myapp);
-
+        mBuilder.setAutoCancel(true);
 //        mBuilder.setNumber(++messageCount);
         mBuilder.setSound(alarmSound);
         mBuilder.setVibrate(pattern);
